@@ -1,12 +1,8 @@
----
-name: Patch Pull Request
-about: Use this to submit a PR that includes a patch which fixes a bug.
----
-
 ## Checklist
 
-_Confirm you have completed the following actions prior to submitting this patch._
+_Confirm you have completed the following actions prior to submitting this PR._
 
+ - [ ] There is an existing issue report for this PR.
  - [ ] I have forked this project.
  - [ ] I have created a feature branch.
  - [ ] My changes have been committed.
@@ -14,7 +10,7 @@ _Confirm you have completed the following actions prior to submitting this patch
 
 ## Title
 
-_Give your PR a short title summarising the patch for the bug fix._
+_Give your PR a short title summarising the patch, bug fix or feature._
 
 ## Description
 
@@ -26,15 +22,17 @@ _Tell us which issue this PR fixes._
 
 This Pull Request Fixes #
 
-## Patch Outline
-
-_Explain what this patch does._
-
- - 
- - 
- - 
-
 ## Proposed Changes
+
+_List your proposed changes below._
+
+ - 
+ - 
+ - 
+
+## New or Changed Features
+
+_Does this PR provide new or changed features or enhancements? If so, what is included in this PR?_
 
  - 
  - 
