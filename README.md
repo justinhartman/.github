@@ -1,26 +1,36 @@
 # .github
 
-A set of Github templates that accelerate your project setup and configuration.
+A set of Github templates that accelerate your project setup and 
+configuration.
 
-## Project Information
+## Table of Contents
+<!-- MarkdownTOC -->
 
-| Meta             | Value                                                               |
-|:-----------------|:--------------------------------------------------------------------|
-| Copyright        | Copyright (C) 2018 Justin Hartman [https://justin.hartman.me][site] |
-| Author           | Justin Hartman [justin@hartman.me][email]                           |
-| License          | [GNU Affero General Public License][license]                        |
-| Version          | 1.0.0                                                               |
-| Release Date     | 10/05/2018 17:00:45 +02:00 GMT                                      |
-| Original Release | 10/05/2018 17:00:45 +02:00 GMT (version-1.0.0)                      |
-| Github           | [@justinhartman/.github][git]                                       |
-| Instructions     | [https://justin.hartman.me][post]                                   |
-| Support          | Open an [Issue on Github][github]                                   |
+- [Overview](#overview)
+- [Installing](#installing)
+- [Screenshots](#screenshots)
+  - [Github Issues](#github-issues)
+  - [Github Issue - General Report](#github-issue---general-report)
+  - [Github Issue - Feature Request](#github-issue---feature-request)
+  - [Github Issue - Bug Report](#github-issue---bug-report)
+  - [Github Pull Request](#github-pull-request)
+- [Authors](#authors)
+- [License](#license)
+- [Contributing](#contributing)
+- [Code of Conduct](#code-of-conduct)
+- [Versioning](#versioning)
+- [Acknowledgements](#acknowledgements)
+
+<!-- /MarkdownTOC -->
 
 ## Overview
 
-Everything you need is contained within the `/templates/` folder. This includes all the files needed to start a project from scratch, which include:
+Everything you need is contained within the `/templates/` folder. This 
+includes all the files needed to start a project from scratch, which include:
 
-- `.github/` folder with templates for working with Github's `Issue` and `Pull Request`. See [the screenshots below][screenshots] for how these integrate with Github.
+- `.github/` folder with templates for working with Github's `Issue` and 
+  `Pull Request`. See [the screenshots below][screenshots] for how these 
+  integrate with Github.
 - `.gitignore` file to ignore certain files and folders.
 - `CODE_OF_CONDUCT.md` file which governs your project.
 - `CONTRIBUTING.md` file outlining how contributors can get involved.
@@ -85,34 +95,35 @@ templates/
 
 ### Github Issues
 
-![Github Isues](https://ws1.sinaimg.cn/large/006tKfTcly1fr6nlcwl2xj30lx08gmxm.jpg)
+![Github Issues][screen-1]
 
 ### Github Issue - General Report
 
-![General Report](https://ws3.sinaimg.cn/large/006tKfTcly1fr6nmfm23gj30lt0j00un.jpg)
+![General Report][screen-2]
 
 ### Github Issue - Feature Request
 
-![Feature Request](https://ws2.sinaimg.cn/large/006tKfTcgy1fr6nqbp7n3j30lk0f5wgg.jpg)
+![Feature Request][screen-3]
 
 ### Github Issue - Bug Report
 
-![Bug Report](https://ws4.sinaimg.cn/large/006tKfTcgy1fr6nrhrn19j30lm136jut.jpg)
+![Bug Report][screen-4]
 
 ### Github Pull Request
 
-![Pull Request](https://ws1.sinaimg.cn/large/006tKfTcgy1fr6nrov8hbj30lg0vlq5o.jpg)
+![Pull Request][screen-5]
 
 ## Authors
 
 * Justin Hartman - [@justinhartman][author-1]
 
-Also see the list of [contributors][contribs] who have participated in this project.
+Also see the list of [contributors][contribs] who have participated in this 
+project.
 
 ## License
 
 ```
-Copyright (C) 2018 Justin Hartman <justin@hartman.me> (https://justin.hartman.me).
+Copyright (C) 2018 Justin Hartman <justin@hartman.me>.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -127,22 +138,35 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 ```
+
 ## Contributing
 
-Please read our [CONTRIBUTING.md][CONTRIBUTING] file for details on how you can get involved in the project as well as the process for submitting bugs and pull requests to us.
+Please read our [CONTRIBUTING.md][CONTRIBUTING] file for details on how you 
+can get involved in the project as well as the process for submitting bugs 
+and pull requests to us.
 
 ## Code of Conduct
 
-Please read our [CODE_OF_CONDUCT.md][COC] file for the guidelines that govern our community.
+Please read our [CODE_OF_CONDUCT.md][COC] file for the guidelines that govern 
+our community.
 
 ## Versioning
 
-We use [Semantic Versioning][semver] for software versions for this project. For a list of all the versions available, see the [tags][tags] and [releases][releases] on this repository. 
+We use [Semantic Versioning][semver] for software versions of this project. 
+For a list of all the versions available, see the [tags][tags] and 
+[releases][releases] on this repository. 
 
 ## Acknowledgements
 
-* [PurpleBooth/README-Template.md][purple-booth] - for the README file inspiration.
+Special thanks go out to the following people and projects who have helped in 
+some way to make this project a reality.
+
+* [@daniellmb/.github][daniellmb] - for the original idea to create a 
+  `.github` template pack.
+* [PurpleBooth/README-Template.md][purple-booth] - for the README file 
+  inspiration.
 * [Github][github-link] - for the `ISSUE_TEMPLATE` template files.
+
 
 [screenshots]: #screenshots
 [email]: mailto:justin@hartman.me?subject=Github+Contact
@@ -160,3 +184,10 @@ We use [Semantic Versioning][semver] for software versions for this project. For
 [contribs]: https://github.com/justinhartman/.github/contributors
 [author-1]: https://github.com/justinhartman
 [github-link]: https://github.com/github
+[screen-1]: https://ws1.sinaimg.cn/large/006tKfTcly1fr6nlcwl2xj30lx08gmxm.jpg
+[screen-2]: https://ws3.sinaimg.cn/large/006tKfTcly1fr6nmfm23gj30lt0j00un.jpg
+[screen-3]: https://ws2.sinaimg.cn/large/006tKfTcgy1fr6nqbp7n3j30lk0f5wgg.jpg
+[screen-4]: https://ws4.sinaimg.cn/large/006tKfTcgy1fr6nrhrn19j30lm136jut.jpg
+[screen-5]: https://ws1.sinaimg.cn/large/006tKfTcgy1fr6nrov8hbj30lg0vlq5o.jpg
+[daniellmb]: https://github.com/daniellmb/.github
+
