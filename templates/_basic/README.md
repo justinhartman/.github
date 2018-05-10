@@ -5,10 +5,10 @@ _One Paragraph of the project description goes here._
 ## Table of Contents
 
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installing](#installing)
+    - [Prerequisites](#prerequisites)
+    - [Installing](#installing)
 - [Running the tests](#running-the-tests)
-  - [Break down into end-to-end tests](#break-down-into-end-to-end-tests)
+    - [Break down into end-to-end tests](#break-down-into-end-to-end-tests)
 - [Deployment](#deployment)
 - [Built With](#built-with)
 - [Contributing](#contributing)
@@ -75,14 +75,14 @@ _Add additional notes about how to deploy this on a live system._
 
 ## Contributing
 
-Please read our [CONTRIBUTING.md][CONTRIBUTING] file for details on how you 
-can get involved in the project as well as the process for submitting bugs and 
-pull requests to us.
+Please read the [CONTRIBUTING.md][CONTRIBUTING] file for details on how you 
+can get involved in the project as well as the process for submitting bugs 
+and pull requests.
 
 ## Code of Conduct
 
-Please read our [CODE_OF_CONDUCT.md][COC] file for the guidelines that govern 
-our community.
+Please read the [CODE_OF_CONDUCT.md][COC] file for the guidelines that govern 
+the community.
 
 ## Versioning
 
@@ -92,7 +92,7 @@ For a list of all the versions available, see the [tags][tags] and
 
 ## Change-Log
 
-View [our `CHANGELOG.md`][changelog] file for a detailed list of changes, 
+View the [`CHANGELOG.md`][changelog] file for a detailed list of changes, 
 along with specific tasks completed for each version released to date.
 
 ## Authors
@@ -118,8 +118,7 @@ some way to make this project a reality.
 
 
 [//]: # (Make sure to change the URL links for `[tags]`, `[releases]`,)
-[//]: # (`[contribs]` and `[author-1]` below to your specific project)
-[//]: # (and authors.)
+[//]: # (`[contribs]` and `[author-1]` below to your specific project.)
 
 [deploy]: #deployment
 [CONTRIBUTING]: CONTRIBUTING.md

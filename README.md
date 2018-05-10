@@ -7,18 +7,25 @@ configuration.
 <!-- MarkdownTOC -->
 
 - [Overview](#overview)
-- [Installing](#installing)
 - [Screenshots](#screenshots)
-  - [Github Issues](#github-issues)
-  - [Github Issue - General Report](#github-issue---general-report)
-  - [Github Issue - Feature Request](#github-issue---feature-request)
-  - [Github Issue - Bug Report](#github-issue---bug-report)
-  - [Github Pull Request](#github-pull-request)
+    - [Github Issues](#github-issues)
+    - [Github Issue - General Report](#github-issue---general-report)
+    - [Github Issue - Feature Request](#github-issue---feature-request)
+    - [Github Issue - Bug Report](#github-issue---bug-report)
+    - [Github Pull Request](#github-pull-request)
+- [Installing](#installing)
+    - [Clone the repository to your machine](#clone-the-repository-to-your-machine)
+    - [Copying the main project structure](#copying-the-main-project-structure)
+    - [Copying only some of the project structure](#copying-only-some-of-the-project-structure)
+    - [Choosing and Copying a License file](#choosing-and-copying-a-license-file)
+    - [The Final Structure](#the-final-structure)
+    - [File Changes](#file-changes)
 - [Authors](#authors)
 - [License](#license)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Versioning](#versioning)
+- [Change-Log](#change-log)
 - [Acknowledgements](#acknowledgements)
 
 <!-- /MarkdownTOC -->
@@ -30,16 +37,17 @@ includes all the files needed to start a project from scratch, which include:
 
 - `.github/` folder with templates for working with Github's `Issue` and 
   `Pull Request`. See [the screenshots below][screenshots] for how these 
-  integrate with Github.
+  integrate directly with Github.
 - `.gitignore` file to ignore certain files and folders.
+- `CHANGELOG.md` file provides a template for tracking releases and changes.
 - `CODE_OF_CONDUCT.md` file which governs your project.
 - `CONTRIBUTING.md` file outlining how contributors can get involved.
-- `README.md` file which is very basic and can be tailored to your needs.
+- `README.md` file which is thorough and can be tailored to your needs.
 - `_licenses/` folder containing all available open-source licenses.
 
-This is the full file breakdown of the `/templates/` folder.
+This is the full file list of the `/templates/` folder.
 
-```terminal
+```console
 templates/
 ├── _basic/
 │   ├── .github/
@@ -49,6 +57,7 @@ templates/
 │   │   │   └── FEATURE_REQUEST.md
 │   │   └── PULL_REQUEST_TEMPLATE.md
 │   ├── .gitignore
+│   ├── CHANGELOG.md
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md
 │   └── README.md
@@ -89,9 +98,12 @@ templates/
     └── zlib.txt
 ```
 
-## Installing
-
 ## Screenshots
+
+The screenshots below demonstrate how the files contained in the `.github/` 
+folder integrate with Github's `Issue` and `Pull Request` features. As you 
+will see, each template allows you to have a unique template when logging 
+Issues or creating a Pull Request.
 
 ### Github Issues
 
@@ -112,6 +124,140 @@ templates/
 ### Github Pull Request
 
 ![Pull Request][screen-5]
+
+## Installing
+
+### Clone the repository to your machine
+
+First off you want to clone the repository to your local machine. You can do 
+so by running the following commands in a terminal console.
+
+```console
+$ git clone https://github.com/justinhartman/.github github-templates
+$ cd github-templates/
+```
+
+**NB:** Specifying a name for the checkout folder (e.g. `github-templates`) 
+when running `git clone` is very important. If you don't, `git` will checkout 
+the repo to a folder called `.github` on your local machine. If you are using 
+`macOS` or `Linux` you won't be able to see the newly checked out repo due to 
+the fact it begins with a period (`.`) and will be hidden by the file-system. 
+It is there; you just cannot see it without running something like `ls -la`.
+
+### Copying the main project structure
+
+To copy the main project structure for a new project simply execute the 
+following commands from the repository root folder.
+
+```console
+$ cd templates/
+$ cp -R _basic/* /path/to/your/project/folder/ # change path to your project
+```
+
+This will copy all the files from the `_basic/` folder into your project root 
+folder. Your project will now contain the following files:
+
+```console
+/path/to/your/project/folder/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── BUG_REPORT.md
+│   │   ├── CUSTOM.md
+│   │   └── FEATURE_REQUEST.md
+│   └── PULL_REQUEST_TEMPLATE.md
+├── .gitignore
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+└── README.md
+```
+
+### Copying only some of the project structure
+
+You may not want to copy everything contained in the `_basic/` folder; 
+especially if you've already initiated a `git` repo (i.e. `git init`) and have 
+a `.gitignore` and/or `README.md` file already contained in your project path.
+
+Copying only _some_ of the main project structure files can be achieved by 
+running the following commands.
+
+```console
+$ cd templates/_basic/
+$ cp -R .github .gitignore CHANGELOG.md CODE_OF_CONDUCT.md \
+   CONTRIBUTING.md README.md \ 
+  /path/to/your/project/folder/ # change path to your project
+```
+
+You can simply remove the file(s) and/or `.github` folder from the above `cp` 
+command thereby copying only the files/folder you need. For example, the below 
+will copy everything _except_ the `README.md` and `.gitignore` files.
+
+```console
+$ cp -R .github CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.md \
+  /path/to/your/project/folder/ # change path to your project
+```
+
+### Choosing and Copying a License file
+
+The `_licenses` folder contains a collection of largely most of the 
+open-source licenses available. To copy a license, choose one from the folder 
+and run the following from your console.
+
+```console
+$ cd templates/_licenses/
+$ cp mit.txt /path/to/your/project/folder/LICENSE # change path to your project
+                                                  # but leave LICENSE intact
+```
+
+**NB:** make sure that when you copy a license file you always name your 
+license as `LICENSE` and not, for example, `mit.txt`. Github looks for a file 
+called `LICENSE` in the root of your project folder so anything other than 
+this and Github won't be able to figure out what license your project is 
+under.
+
+### The Final Structure
+
+Once you have copied across the basic project structure and a license file you 
+should end up with your project directory looking like this:
+
+```console
+/path/to/your/project/folder/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── BUG_REPORT.md
+│   │   ├── CUSTOM.md
+│   │   └── FEATURE_REQUEST.md
+│   └── PULL_REQUEST_TEMPLATE.md
+├── .gitignore
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+└── README.md
+```
+
+### File Changes
+
+These templates have been designed to work _out-the-box_ without much need for 
+intervention on your part. There are however a few files where you will need 
+to make some changes in order to tailor this to your project. See below for a 
+list of changes you **should make** before committing to your repo.
+
+As a recommendation, it is better to edit the files in your project folder 
+rather than in this repository. This will allow you to update the repo without 
+losing any changes you may have made.
+
+- `/.gitignore` - this template has been configured to ignore file-system 
+  specific files for macOS, Windows and Linux. Delete whatever is not 
+  relevant to your needs.
+- `/CHANGELOG.md` - update your versioning structure and enter a release date.
+- `/README.md` - you will make many changes to this file but you must update 
+  the URLs at the end of the file. Currently they link to this repo and should 
+  be replaced with your Github project URL.
+- `/CONTRIBUTING.md` - as with the `README.md` you need to update the links 
+  to your project at the end of the file.
+- `/CODE_OF_CONDUCT.md` - at the end of this file you will need to replace the 
+  generic email address with an email address for your project.
 
 ## Authors
 
@@ -141,20 +287,25 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ## Contributing
 
-Please read our [CONTRIBUTING.md][CONTRIBUTING] file for details on how you 
+Please read the [CONTRIBUTING.md][CONTRIBUTING] file for details on how you 
 can get involved in the project as well as the process for submitting bugs 
-and pull requests to us.
+and pull requests.
 
 ## Code of Conduct
 
-Please read our [CODE_OF_CONDUCT.md][COC] file for the guidelines that govern 
-our community.
+Please read the [CODE_OF_CONDUCT.md][COC] file for the guidelines that govern 
+the community.
 
 ## Versioning
 
 We use [Semantic Versioning][semver] for software versions of this project. 
 For a list of all the versions available, see the [tags][tags] and 
 [releases][releases] on this repository. 
+
+## Change-Log
+
+View the [`CHANGELOG.md`][changelog] file for a detailed list of changes, 
+along with specific tasks completed for each version released to date.
 
 ## Acknowledgements
 
@@ -190,4 +341,5 @@ some way to make this project a reality.
 [screen-4]: https://ws4.sinaimg.cn/large/006tKfTcgy1fr6nrhrn19j30lm136jut.jpg
 [screen-5]: https://ws1.sinaimg.cn/large/006tKfTcgy1fr6nrov8hbj30lg0vlq5o.jpg
 [daniellmb]: https://github.com/daniellmb/.github
+[changelog]: CHANGELOG.md
 

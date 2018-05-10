@@ -44,7 +44,7 @@ _If applicable, add screenshots to help explain your problem._
 
 ### Additional Context
 
-Add any other context about the problem here.
+_Add any other context about the problem here._
 
 [//]: # (Add links to any screenshots or other relevant information below)
 
