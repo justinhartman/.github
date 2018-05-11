@@ -8,18 +8,18 @@ configuration.
 
 - [Overview](#overview)
 - [Screenshots](#screenshots)
-    - [Github Issues](#github-issues)
-    - [Github Issue - General Report](#github-issue---general-report)
-    - [Github Issue - Feature Request](#github-issue---feature-request)
-    - [Github Issue - Bug Report](#github-issue---bug-report)
-    - [Github Pull Request](#github-pull-request)
+  - [Github Issues](#github-issues)
+  - [Github Issue - General Report](#github-issue---general-report)
+  - [Github Issue - Feature Request](#github-issue---feature-request)
+  - [Github Issue - Bug Report](#github-issue---bug-report)
+  - [Github Pull Request](#github-pull-request)
 - [Installing](#installing)
-    - [Clone the repository to your machine](#clone-the-repository-to-your-machine)
-    - [Copying the main project structure](#copying-the-main-project-structure)
-    - [Copying only some of the project structure](#copying-only-some-of-the-project-structure)
-    - [Choosing and Copying a License file](#choosing-and-copying-a-license-file)
-    - [The Final Structure](#the-final-structure)
-    - [File Changes](#file-changes)
+  - [Clone the repository to your machine](#clone-the-repository-to-your-machine)
+  - [Copying the main project structure](#copying-the-main-project-structure)
+  - [Copying only some of the project structure](#copying-only-some-of-the-project-structure)
+  - [Choosing and Copying a License file](#choosing-and-copying-a-license-file)
+  - [The Final Structure](#the-final-structure)
+  - [File Changes](#file-changes)
 - [Authors](#authors)
 - [License](#license)
 - [Contributing](#contributing)
@@ -151,7 +151,7 @@ following commands from the repository root folder.
 
 ```console
 $ cd templates/
-$ cp -R _basic/* /path/to/your/project/folder/ # change path to your project
+$ cp -R _basic/ /path/to/your/project/folder/ # change path to your project
 ```
 
 This will copy all the files from the `_basic/` folder into your project root 
