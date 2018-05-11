@@ -268,6 +268,9 @@ project.
 
 ## License
 
+This project is licensed under the `AGPL-3.0` License. See the 
+[LICENSE][license] file for full details.
+
 ```
 Copyright (C) 2018 Justin Hartman <justin@hartman.me>.
 
