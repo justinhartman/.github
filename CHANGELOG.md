@@ -1,6 +1,7 @@
 
 Version 1.0.2 / 2018-05-20
 ==================
+ba20f1ff3b483d36a9b5e238249f8ba53da62b0c
 
   * Simplified the `CHANGELOG.md` file.
   * Added VS Code workspace file.
