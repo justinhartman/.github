@@ -1,22 +1,10 @@
 
-n.n.n / 2018-05-20
+Version 1.0.2 / 2018-05-20
 ==================
 
+  * Simplified the `CHANGELOG.md` file.
+  * Added VS Code workspace file.
   * Added link to LICENSE file.
-
-n.n.n / 2018-05-20
-==================
-
-  * Added link to LICENSE file.
-# Project Change-Log
-
-Below is a detailed change-log, along with specific tasks completed, for each
-version released to date.
-
-## Version 1.0.2 (20/05/2018)
-
-- [#enhancement](#enhancement)
-    + Simplified the `CHANGELOG.md` file.
 
 ## Version 1.0.1 (11/05/2018)
 
