@@ -2,8 +2,8 @@
 
 ## Did You Find a Bug?
 
-- **Ensure the bug was not already reported** by searching on GitHub under
-  [Issues][issues].
+- **Ensure the bug was not already reported** by searching on GitHub
+  under [Issues][issues].
 - If you're unable to find an open issue addressing the problem,
   [open a new one][new-issue]. Be sure to include a **title and clear
   description**, as much relevant information as possible, and a **code
@@ -28,7 +28,7 @@
 
 Thanks for contributing! :heart:
 
-[//]: # (Simply change the URL's below to your own project information)
+[//]: # (Change the URL's below to your own project information)
 
 [issues]: https://github.com/justinhartman/.github/issues
 [new-issue]: https://github.com/justinhartman/.github/issues/new

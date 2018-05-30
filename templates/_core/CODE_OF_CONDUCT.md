@@ -2,16 +2,12 @@
 
 ### Table of Contents
 
-<!-- MarkdownTOC -->
-
 - [Our Pledge](#our-pledge)
 - [Our Standards](#our-standards)
 - [Our Responsibilities](#our-responsibilities)
 - [Scope](#scope)
 - [Enforcement](#enforcement)
 - [Attribution](#attribution)
-
-<!-- /MarkdownTOC -->
 
 ## Our Pledge
 
@@ -87,6 +83,6 @@ version 1.4, available at
 [//]: # (Make sure to change the email address below to your)
 [//]: # (project-specific email.)
 
-[email]: mailto:justin@hartman.me?subject=Contributor+Covenant+Code+of+Conduct
+[email]: mailto:name@example.com?subject=Contributor+Covenant+Code+of+Conduct
 [homepage]: http://contributor-covenant.org
 [version]: http://contributor-covenant.org/version/1/4/

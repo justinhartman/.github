@@ -6,6 +6,6 @@ version released to date.
 ## Version 0.0.1 (??/??/2018)
 
 - [#new](#new)
-    + First Commit to the Repo.
+  - First Commit to the Repo.
 - [#enhancement](#enhancement)
 - [#bugfix](#bugfix)
