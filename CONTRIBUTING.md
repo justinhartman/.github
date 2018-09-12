@@ -30,5 +30,5 @@ Thanks for contributing! :heart:
 
 [//]: # (Simply change the URL's below to your own project information)
 
-[issues]: https://github.com/justinhartman/.github/issues
-[new-issue]: https://github.com/justinhartman/.github/issues/new
+[issues]: https://gitlab.com/justinhartman/github-templates/issues
+[new-issue]: https://gitlab.com/justinhartman/github-templates/issues/new

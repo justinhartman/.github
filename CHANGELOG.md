@@ -8,6 +8,10 @@ version released to date.
 - [#bugfix](#bugfix)
   - Updated the `README` to reflect the change in the renaming of the
     `_basic/` template to `_core/`.
+  - Fixed up issues with the bold markdown syntax.
+- [#enhancement](#enhancement)
+  - Updated the project URL to GitLab and not GitHub as this is where I maintain
+    the software, GitHub is simply a clone of the GitLab repo.
 
 ## Version 1.0.3 (31/05/2018)
 

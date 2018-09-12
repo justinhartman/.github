@@ -130,16 +130,17 @@ First off you want to clone the repository to your local machine. You can do
 so by running the following commands in a terminal.
 
 ```terminal
-$ git clone https://github.com/justinhartman/.github github-templates
+$ git clone https://gitlab.com/justinhartman/github-templates github-templates
 $ cd github-templates/
 ```
 
-**NB:*- Specifying a name for the checkout folder (e.g. `github-templates`)
-when running `git clone` is very important. If you don't, `git` will checkout
-the repo to a folder called `.github` on your local machine. If you are using
-`macOS` or `Linux` you won't be able to see the newly checked out repo due to
-the fact it begins with a period (`.`) and will be hidden by the file-system.
-It is there; you just cannot see it without running something like `ls -la`.
+**If you're checking out the code from GitHub please note** that specifying a
+name for the checkout folder (e.g. `github-templates`) when running `git clone`
+is very important. If you don't, `git` will checkout the repo to a folder called
+`.github` on your local machine. If you are using `macOS` or `Linux` you won't
+be able to see the newly checked out repo due to the fact it begins with a
+period (`.`) and will be hidden by the file-system. It is there; you just cannot
+see it without running something like `ls -la`.
 
 ### Copying the main project structure
 
@@ -206,7 +207,7 @@ $ cp mit.txt /path/to/your/project/folder/LICENSE # change path to your project
                                                   # but leave LICENSE intact
 ```
 
-**NB:*- make sure that when you copy a license file you always name your
+**NB:** make sure that when you copy a license file you always name your
 license as `LICENSE` and not, for example, `mit.txt`. Github looks for a file
 called `LICENSE` in the root of your project folder so anything other than
 this and Github won't be able to figure out what license your project is
@@ -238,7 +239,7 @@ should end up with your project directory looking like this:
 These templates have been designed to work _out-the-box_ without much need for
 intervention on your part. There are however a few files where you will need
 to make some changes in order to tailor this to your project. See below for a
-list of changes you **should make*- before committing to your repo.
+list of changes you **should make** before committing to your repo.
 
 As a recommendation, it is better to edit the files in your project folder
 rather than in this repository. This will allow you to update the repo without
@@ -319,19 +320,19 @@ some way to make this project a reality.
 - [Github][github-link] - for the `ISSUE_TEMPLATE` template files.
 
 [screenshots]: #screenshots
-[email]: mailto:justin@hartman.me?subject=Github+Contact
+[email]: mailto:justin@hartman.me?subject=GitHub+Contact
 [license]: LICENSE
-[site]: https://justin.hartman.me
-[post]: https://justin.hartman.me
-[git]: https://github.com/justinhartman/.github
-[github]: https://github.com/justinhartman/.github/issues
+[site]: https://justinhartman.blog
+[post]: https://justinhartman.blog
+[git]: https://gitlab.com/justinhartman/github-templates
+[github]: https://gitlab.com/justinhartman/github-templates/issues
 [purple-booth]: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 [CONTRIBUTING]: CONTRIBUTING.md
 [COC]: CODE_OF_CONDUCT.md
 [semver]: http://semver.org
-[tags]: https://github.com/justinhartman/.github/tags
-[releases]: https://github.com/justinhartman/.github/releases
-[contribs]: https://github.com/justinhartman/.github/contributors
+[tags]: https://gitlab.com/justinhartman/github-templates/tags
+[releases]: https://gitlab.com/justinhartman/github-templates/tags
+[contribs]: https://gitlab.com/justinhartman/github-templates/graphs/master
 [author-1]: https://github.com/justinhartman
 [github-link]: https://github.com/github
 [screen-1]: https://ws1.sinaimg.cn/large/006tKfTcly1fr6nlcwl2xj30lx08gmxm.jpg
