@@ -3,6 +3,12 @@
 Below is a detailed change-log, along with specific tasks completed, for each
 version released to date.
 
+## Version 1.0.4 (12/09/2018)
+
+- [#bugfix](#bugfix)
+  - Updated the `README` to reflect the change in the renaming of the
+    `_basic/` template to `_core/`.
+
 ## Version 1.0.3 (31/05/2018)
 
 - [#enhancement](#enhancement)
@@ -10,7 +16,7 @@ version released to date.
   - Updated the `.gitignore` template.
   - Enhanced the `PULL_REQUEST_TEMPLATE.md` by becoming more human.
 - [#bugfix](#bugfix)
-  - Fixed up the trailing whitespace before linebreaks in:
+  - Fixed up the trailing whitespace before line-breaks in:
     - `CODE_OF_CONDUCT.md`
     - `CONTRIBUTING.md`
     - `README.md`
