@@ -148,10 +148,10 @@ following commands from the repository root folder.
 
 ```terminal
 $ cd templates/
-$ cp -R _basic/ /path/to/your/project/folder/ # change path to your project
+$ cp -R _core/ /path/to/your/project/folder/ # change path to your project
 ```
 
-This will copy all the files from the `_basic/` folder into your project root
+This will copy all the files from the `_core/` folder into your project root
 folder. Your project will now contain the following files:
 
 ```terminal
@@ -171,7 +171,7 @@ folder. Your project will now contain the following files:
 
 ### Copying only some of the project structure
 
-You may not want to copy everything contained in the `_basic/` folder;
+You may not want to copy everything contained in the `_core/` folder;
 especially if you've already initiated a `git` repo (i.e. `git init`) and have
 a `.gitignore` and/or `README.md` file already contained in your project path.
 
@@ -179,7 +179,7 @@ Copying only _some_ of the main project structure files can be achieved by
 running the following commands.
 
 ```terminal
-$ cd templates/_basic/
+$ cd templates/_core/
 $ cp -R .github .gitignore CHANGELOG.md CODE_OF_CONDUCT.md \
    CONTRIBUTING.md README.md \
      /path/to/your/project/folder/ # change path to your project
