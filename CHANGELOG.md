@@ -12,6 +12,7 @@ version released to date.
 - [#enhancement](#enhancement)
   - Updated the project URL to GitLab and not GitHub as this is where I maintain
     the software, GitHub is simply a clone of the GitLab repo.
+  - Deleted the Visual Studio workspace file. Decided it just added bloatware.
 
 ## Version 1.0.3 (31/05/2018)
 
