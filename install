@@ -1,73 +1,194 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2016,SC2119,SC2120
+#
+# Setup and install the .github templates in a repo.
+#
+# Copyright 2020 Justin Hartman (https://hartan.me)
+# Author:  Justin Hartman <justin@hartman.me>
+# Version: 1.0.0
+# Link:    https://github.com/justinhartman/.github
+# License: MIT https://opensource.org/licenses/MIT
+#
 set -e
 
+#######################################
+# Reusable variables.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
 configs() {
-    DTMP=$TMPDIR/github
-    WTMP=%TMP%"\github"
-    export DTMP WTMP
+    REPO=https://github.com/justinhartman/.github
+    APP_VERSION=$(latest-version)
+    FOLDER=".github-${APP_VERSION}"
+
+    export DTMP WTMP REPO APP_VERSION FOLDER
 }
 
-latest-version() {
-    curl -fsi https://github.com/justinhartman/.github/releases/latest | awk -F/ 'tolower($1) ~ /^location:/ {print $(NF)}'
-}
-
-download() {
-    echo "Making temporary directory and downloding the latest release from GitHub."
+#######################################
+# Indent method for terminal messages.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
+indent() {
     case "$OS" in
-        windows)
-            md "${WTMP}"
-            zip="${1%.tar.gz}.zip"
-            curl -fsSLO "$zip"
-            unzip "$(basename "$zip")" -d "${WTMP}"
-            rm -f "$(basename "$zip")"
-            echo "Downloaded and extracted all files to: ${WTMP}"
-            ;;
         darwin)
-            mkdir -p "${DTMP}"
-            curl -fsSL "$1" | tar -xz -C "${DTMP}"
-            echo "Downloaded and extracted all files to: ${DTMP}"
+            sed -E 's/^/       /'
             ;;
         *)
-            echo "ERROR: Could not find your Operating System."
+            sed -u 's/^/       /'
             ;;
     esac
 }
 
+#######################################
+# Get latest release version number
+# from GitHub.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   String   Latest version number.
+#######################################
+latest-version() {
+    curl -fsi "${REPO}"/releases/latest | grep -Fi location | sed 's@.*/@@' | tr -d '[:cntrl:]'
+}
+
+#######################################
+# Download archive from GitHub for both
+# Windows or macOS/Linux and extract to
+# current folder.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
+download() {
+    echo "-----> Downloding the latest release from GitHub."
+
+    case "$OS" in
+        windows)
+            zip="${REPO}/archive/${APP_VERSION}.zip"
+            curl -fsSLO "$zip"
+            unzip "$(basename "$zip")"
+            rm -f "$(basename "$zip")"
+            echo "Downloaded and extracted all files." | indent
+            ;;
+        *)
+            curl -fsSL "${REPO}/archive/${APP_VERSION}.tar.gz" | tar -xz
+            echo "Downloaded and extracted all files." | indent
+            ;;
+    esac
+}
+
+#######################################
+# Copy core GitHub templates to the
+# current folder.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
 move() {
-    cd "${DTMP}" || cd "${WTMP}" || exit
-    # read -r -p "Type in the path of your project you want to install the templates: "
-    cp -R _core/ "$(pwd)"/
-    echo "Copied the core github files to $(pwd)"
+    echo "-----> Copying core GitHub files to your repo."
+    cp -R "${FOLDER}"/templates/_core/ "$(pwd)"/
+    echo "Copied the core GitHub files to $(pwd)" | indent
 }
 
+#######################################
+# Copy and rename a license file from
+# the licenses folder to the current
+# directory.
+# Globals:
+#   None
+# Arguments:
+#   String   Filename of the license.
+# Returns:
+#   None
+#######################################
 license() {
-    read -r -p "Which license should we use for your project?: "
-    cp _licenses/"${REPLY}" "$(pwd)"/LICENSE
-    echo "Copied the ${REPLY} license to $(pwd)/LICENSE"
+    echo "-----> Which license should we use for your project?"
+    echo "Example: 'mit.txt' for MIT license / 'apache-2.0.txt' for Apache." | indent
+    echo "For a list of available files visit: https://git.io/JJm4H" | indent
+    read -r -p "-----> Enter filename: "
+
+    if [[ -z ${REPLY} ]]; then
+        echo "You did not enter a license. Please try again." | indent
+        read -r -p "-----> Enter filename: "
+    fi
+
+    if cp "${FOLDER}"/templates/_licenses/"${REPLY}" "$(pwd)"/LICENSE; then
+        echo "Copied the ${REPLY} license to $(pwd)/LICENSE" | indent
+    else
+        echo "You entered the incorrect license file." | indent
+        echo "For a list of available files visit: https://git.io/JJm4H" | indent
+        read -r -p "-----> Please re-enter the filename: "
+        cp "${FOLDER}"/templates/_licenses/"${REPLY}" "$(pwd)"/LICENSE
+        echo "Copied the ${REPLY} license to $(pwd)/LICENSE" | indent
+    fi
 }
 
-configs
-
-APP_VERSION="${1#v}"
-if [ -z "$APP_VERSION" ]; then
-    latest=$(latest-version) || true
-    [ -n "$latest" ] || latest="1.0.0"
-    cat << MSG >&2
-Error: You must specify a version of .github templates via the first argument.
-Example: curl -fsSL <script> | bash -s ${latest#v}
-MSG
-    exit 1
-fi
+#######################################
+# Remove and cleanup any temporary
+# working files from the current
+# directory.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
+cleanup() {
+    echo "-----> Cleaning up temporary files."
+    rm -rf "${FOLDER}"
+    echo "Removed the temporary files and folders." | indent
+}
 
 OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
 case "$OS" in
     mingw* | msys*) OS=windows ;;
 esac
 
-download "https://github.com/justinhartman/.github/archive/$APP_VERSION.tar.gz"
-move
-license
+#######################################
+# Run the main application methods.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
+main() {
+    echo "-----> Starting the template build."
+    # Setup the configuration variables.
+    configs
+    # Download and extract latest release.
+    download
+    # Copy core files to repo.
+    move
+    # Copy and rename license file.
+    license
+    # Remove any temporary working files.
+    cleanup
+    # Confirm the end of the build.
+    echo "-----> The .github templates have been installed at: $(pwd)"
+    echo "-----> Done."
+}
 
-echo -e "The .github templates have been installed at: $(pwd)"
-
+# Run the method.
+main
+# Exit gracefully.
 exit 0
