@@ -1,6 +1,10 @@
 ---
 name: General Report
 about: A general issue report to help improve our project.
+title: ''
+labels: ''
+assignees: ''
+
 ---
 
 ### Expected Behaviour 
