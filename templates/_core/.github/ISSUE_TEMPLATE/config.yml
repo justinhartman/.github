@@ -1,0 +1,12 @@
+blank_issues_enabled: true
+#
+# If you prefer to receive certain reports outside of GitHub, you can direct
+# people to external sites with contact_links. (uncomment below)
+#
+# contact_links:
+#   - name: GitHub Community Support
+#     url: https://github.community/
+#     about: Please ask and answer questions here.
+#   - name: GitHub Security Bug Bounty
+#     url: https://bounty.github.com/
+#     about: Please report security vulnerabilities here.
