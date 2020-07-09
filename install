@@ -119,25 +119,28 @@ move() {
 #   None
 #######################################
 license() {
-    echo "-----> Which license should we use for your project?"
-    echo "Example: 'mit.txt' for MIT license / 'apache-2.0.txt' for Apache." | indent
-    echo "For a list of available files visit: https://git.io/JJm4H" | indent
-    read -r -p "-----> Enter filename: "
+    echo "-----> Copying and renaming the license file."
+    cp "${FOLDER}/templates/_licenses/${LICENSE}" "$(pwd)"/LICENSE
+    echo "Copied the ${LICENSE} license to $(pwd)/LICENSE" | indent
+    # echo "-----> Which license should we use for your project?"
+    # echo "Example: 'mit.txt' for MIT license / 'apache-2.0.txt' for Apache." | indent
+    # echo "For a list of available files visit: https://git.io/JJm4H" | indent
+    # read -r -p "-----> Enter filename: "
 
-    if [[ -z ${REPLY} ]]; then
-        echo "You did not enter a license. Please try again." | indent
-        read -r -p "-----> Enter filename: "
-    fi
+    # if [[ -z ${REPLY} ]]; then
+    #     echo "You did not enter a license. Please try again." | indent
+    #     read -r -p "-----> Enter filename: "
+    # fi
 
-    if cp "${FOLDER}"/templates/_licenses/"${REPLY}" "$(pwd)"/LICENSE; then
-        echo "Copied the ${REPLY} license to $(pwd)/LICENSE" | indent
-    else
-        echo "You entered the incorrect license file." | indent
-        echo "For a list of available files visit: https://git.io/JJm4H" | indent
-        read -r -p "-----> Please re-enter the filename: "
-        cp "${FOLDER}"/templates/_licenses/"${REPLY}" "$(pwd)"/LICENSE
-        echo "Copied the ${REPLY} license to $(pwd)/LICENSE" | indent
-    fi
+    # if cp "${FOLDER}"/templates/_licenses/"${REPLY}" "$(pwd)"/LICENSE; then
+    #     echo "Copied the ${REPLY} license to $(pwd)/LICENSE" | indent
+    # else
+    #     echo "You entered the incorrect license file." | indent
+    #     echo "For a list of available files visit: https://git.io/JJm4H" | indent
+    #     read -r -p "-----> Please re-enter the filename: "
+    #     cp "${FOLDER}"/templates/_licenses/"${REPLY}" "$(pwd)"/LICENSE
+    #     echo "Copied the ${REPLY} license to $(pwd)/LICENSE" | indent
+    # fi
 }
 
 #######################################
@@ -183,12 +186,22 @@ main() {
     license
     # Remove any temporary working files.
     cleanup
+}
+
+LICENSE="${1#v}"
+if [ -z "$LICENSE" ]; then
+    echo "-----> You need to select a license file for your project."
+    echo "Example: 'mit.txt' for MIT license, 'apache-2.0.txt' for Apache, etc." | indent
+    echo "For a full list of available files you can use visit: https://git.io/JJm4H" | indent
+    echo "-----> Done, with errors."
+
+    exit 1
+else
+    # Run the method.
+    main
     # Confirm the end of the build.
     echo "-----> The .github templates have been installed at: $(pwd)"
     echo "-----> Done."
-}
-
-# Run the method.
-main
-# Exit gracefully.
-exit 0
+    # Exit gracefully.
+    exit 0
+fi
