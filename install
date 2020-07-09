@@ -1,13 +1,52 @@
 #!/usr/bin/env bash
-# Usage: curl -fsSL https://github.com/justinhartman/.github/raw/master/install | bash -s <APP_VERSION>
-#
-# Downloads the .github templates into `github-templates` folder within the current directory.
-
 set -e
+
+configs() {
+    DTMP=$TMPDIR/github
+    WTMP=%TMP%"\github"
+    export DTMP WTMP
+}
 
 latest-version() {
     curl -fsi https://github.com/justinhartman/.github/releases/latest | awk -F/ 'tolower($1) ~ /^location:/ {print $(NF)}'
 }
+
+download() {
+    echo "Making temporary directory and downloding the latest release from GitHub."
+    case "$OS" in
+        windows)
+            md "${WTMP}"
+            zip="${1%.tar.gz}.zip"
+            curl -fsSLO "$zip"
+            unzip "$(basename "$zip")" -d "${WTMP}"
+            rm -f "$(basename "$zip")"
+            echo "Downloaded and extracted all files to: ${WTMP}"
+            ;;
+        darwin)
+            mkdir -p "${DTMP}"
+            curl -fsSL "$1" | tar -xz -C "${DTMP}"
+            echo "Downloaded and extracted all files to: ${DTMP}"
+            ;;
+        *)
+            echo "ERROR: Could not find your Operating System."
+            ;;
+    esac
+}
+
+move() {
+    cd "${DTMP}" || cd "${WTMP}" || exit
+    # read -r -p "Type in the path of your project you want to install the templates: "
+    cp -R _core/ "$(pwd)"/
+    echo "Copied the core github files to $(pwd)"
+}
+
+license() {
+    read -r -p "Which license should we use for your project?: "
+    cp _licenses/"${REPLY}" "$(pwd)"/LICENSE
+    echo "Copied the ${REPLY} license to $(pwd)/LICENSE"
+}
+
+configs
 
 APP_VERSION="${1#v}"
 if [ -z "$APP_VERSION" ]; then
@@ -25,33 +64,10 @@ case "$OS" in
     mingw* | msys*) OS=windows ;;
 esac
 
-download() {
-    case "$OS" in
-        windows)
-            zip="${1%.tar.gz}.zip"
-            curl -fsSLO "$zip"
-            unzip "$(basename "$zip")" github-templates
-            rm -f "$(basename "$zip")"
-            ;;
-        darwin)
-            curl -fsSL "$1" | tar zxf --strip-components=1 '*/github-templates'
-            ;;
-        *)
-            curl -fsSL "$1" | tar zxf --strip-components=1 --wildcards '*/github-templates'
-            ;;
-    esac
-}
-
 download "https://github.com/justinhartman/.github/archive/$APP_VERSION.tar.gz"
+move
+license
 
-echo -e "The .github templates have been installed at: $(pwd)/github-templates"
+echo -e "The .github templates have been installed at: $(pwd)"
 
 exit 0
-
-# bin/hub version
-# if [ -z "$GITHUB_TOKEN" ]; then
-#     cat << MSG >&2
-# Warning: We recommend supplying the GITHUB_TOKEN environment variable to avoid
-# being prompted for authentication.
-# MSG
-# fi
