@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# Usage: curl -fsSL https://github.com/justinhartman/.github/raw/master/install | bash -s <APP_VERSION>
+#
+# Downloads the .github templates into `github-templates` folder within the current directory.
+
+set -e
+
+latest-version() {
+    curl -fsi https://github.com/justinhartman/.github/releases/latest | awk -F/ 'tolower($1) ~ /^location:/ {print $(NF)}'
+}
+
+APP_VERSION="${1#v}"
+if [ -z "$APP_VERSION" ]; then
+    latest=$(latest-version) || true
+    [ -n "$latest" ] || latest="1.0.0"
+    cat << MSG >&2
+Error: You must specify a version of .github templates via the first argument.
+Example: curl -fsSL <script> | bash -s ${latest#v}
+MSG
+    exit 1
+fi
+
+OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
+case "$OS" in
+    mingw* | msys*) OS=windows ;;
+esac
+
+download() {
+    case "$OS" in
+        windows)
+            zip="${1%.tar.gz}.zip"
+            curl -fsSLO "$zip"
+            unzip "$(basename "$zip")" github-templates
+            rm -f "$(basename "$zip")"
+            ;;
+        darwin)
+            curl -fsSL "$1" | tar zxf --strip-components=1 '*/github-templates'
+            ;;
+        *)
+            curl -fsSL "$1" | tar zxf --strip-components=1 --wildcards '*/github-templates'
+            ;;
+    esac
+}
+
+download "https://github.com/justinhartman/.github/archive/$APP_VERSION.tar.gz"
+
+echo -e "The .github templates have been installed at: $(pwd)/github-templates"
+
+exit 0
+
+# bin/hub version
+# if [ -z "$GITHUB_TOKEN" ]; then
+#     cat << MSG >&2
+# Warning: We recommend supplying the GITHUB_TOKEN environment variable to avoid
+# being prompted for authentication.
+# MSG
+# fi
