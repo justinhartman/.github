@@ -124,13 +124,13 @@ license() {
     if cp "${FOLDER}/templates/_licenses/${LICENSE}" "$(pwd)"/LICENSE; then
         echo "Copied the ${LICENSE} license to $(pwd)/LICENSE" | indent
     else
-        echo "You entered the incorrect license file." | indent
-        echo "For a list of available files visit: https://git.io/JJm4H" | indent
+        echo "ERROR: You entered an incorrect filename for the license." | indent
         # Run the cleanup method to clear temp files.
         cleanup-error
         # Notify user to try again.
         echo "-----> Please run the command again with a valid license filename. Example:"
-        echo "curl -fsSL https://github.com/justinhartman/.github/raw/develop/install | bash -s mit.txt" | indent
+        echo "curl -fsSL https://github.com/justinhartman/.github/raw/master/install | bash -s mit.txt" | indent
+        echo "For a full list of available license files, go to https://git.io/JJm4H" | indent
 
         # Exit with an error.
         exit 1
@@ -168,7 +168,7 @@ cleanup() {
 #   None
 #######################################
 cleanup-error() {
-    echo "-----> ERROR: Cleaning up all installed files and folders."
+    echo "-----> Cleaning up all installed files and folders."
     # Remove the extracted folder as well all the core files already copied.
     rm -rf "${FOLDER}" .github .gitignore ./*.md
     echo "Removed all install and temporary files and folders." | indent
@@ -208,9 +208,9 @@ LICENSE="${1#v}"
 if [ -z "$LICENSE" ]; then
     echo "-----> Error: You must select a license file to use with your project."
     echo "Example: 'mit.txt' for MIT license, 'apache-2.0.txt' for Apache, etc." | indent
-    echo "For a full list of available files you can use, go to https://git.io/JJm4H" | indent
+    echo "For a full list of available license files, go to https://git.io/JJm4H" | indent
     echo "-----> Please run the command again. Example:"
-    echo "curl -fsSL https://github.com/justinhartman/.github/raw/develop/install | bash -s mit.txt" | indent
+    echo "curl -fsSL https://github.com/justinhartman/.github/raw/master/install | bash -s mit.txt" | indent
 
     # Exit with an error.
     exit 1
