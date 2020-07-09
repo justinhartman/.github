@@ -13,11 +13,11 @@
 ## Did You Write a Patch That Fixes a Bug?
 
 - Open a new GitHub pull request with the patch.
-  - Fork this project
-  - Create your feature branch: `git checkout -b my-new-feature`
-  - Commit your changes: `git commit -am 'Add some feature'`
-  - Push to the branch: `git push origin my-new-feature`
-  - Submit a pull request :tada:
+    - Fork this project
+    - Create your feature branch: `git checkout -b my-new-feature`
+    - Commit your changes: `git commit -am 'Add some feature'`
+    - Push to the branch: `git push origin my-new-feature`
+    - Submit a pull request :tada:
 - Ensure the PR description clearly describes the problem and solution.
   Include the relevant issue number if applicable.
 

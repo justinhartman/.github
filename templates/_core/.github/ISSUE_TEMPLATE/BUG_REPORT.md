@@ -1,6 +1,9 @@
 ---
 name: Bug Report
 about: Create a report to help us fix a bug you have found.
+title: ''
+labels: bug
+assignees: ''
 ---
 
 ### Describe the Bug
@@ -48,4 +51,4 @@ _Add any other context about the problem here._
 
 [//]: # (Add links to any screenshots or other relevant information below)
 
-[screenshot-1]: https://ws3.sinaimg.cn/large/006tKfTcly1fr6kihddwhj30b008j74g.jpg
+[screenshot-1]: https://raw.githubusercontent.com/justinhartman/jekyll-heroku-starter-kit/master/assets/images/website.png

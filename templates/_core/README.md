@@ -5,12 +5,12 @@ _One Paragraph of the project description goes here._
 ###### Table of Contents
 
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installing](#installing)
-    - [Say what the step will be](#say-what-the-step-will-be)
-    - [And repeat](#and-repeat)
+    - [Prerequisites](#prerequisites)
+    - [Installing](#installing)
+        - [Say what the step will be](#say-what-the-step-will-be)
+        - [And repeat](#and-repeat)
 - [Running the tests](#running-the-tests)
-  - [Break down into end-to-end tests](#break-down-into-end-to-end-tests)
+    - [Break down into end-to-end tests](#break-down-into-end-to-end-tests)
 - [Deployment](#deployment)
 - [Built With](#built-with)
 - [Contributing](#contributing)
@@ -71,9 +71,8 @@ _Add additional notes about how to deploy this on a live system._
 
 ## Built With
 
-- Project Mahem
 - Github Pages
-- Jekyll
+- Etc.
 
 ## Contributing
 
@@ -106,17 +105,18 @@ project.
 
 ## License
 
-This project is licensed under the `MIT` License. See the
+This project is licensed under the `??????????` License. See the
 [LICENSE][license] file for full details.
 
 ## Acknowledgements
 
 Special thanks go out to the following people and projects who have helped in
-some way to make this project a reality.
+making this project a reality.
 
-- [@justinhartman/.github][.github] - for the Github project templates.
+- [@justinhartman/.github][.github] for the Github project templates.
 
-[//]: # (Make sure to change the URL links for `[tags]`, `[releases]`,)
+[//]: # (☝️ Update your License information above in the template!)
+[//]: # (👇 Make sure to change the URL links for `[tags]`, `[releases]`,)
 [//]: # (`[contribs]` and `[author-1]` below to your specific project.)
 
 [deploy]: #deployment

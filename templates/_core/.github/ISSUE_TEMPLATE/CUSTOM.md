@@ -1,6 +1,9 @@
 ---
 name: General Report
 about: A general issue report to help improve our project.
+title: ''
+labels: ''
+assignees: ''
 ---
 
 ### Expected Behaviour 
@@ -22,4 +25,5 @@ _Detail the steps below to help us reproduce the problem you encountered._
 
 ### Specifications
 
-_The version of the project you are using, operating system, hardware and anything else that you think may be relevant to reporting this problem._
+_The version of the project you are using, operating system, hardware and 
+anything else that you think may be relevant to reporting this problem._
