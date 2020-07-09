@@ -114,33 +114,27 @@ move() {
 # Globals:
 #   None
 # Arguments:
-#   String   Filename of the license.
+#   None
 # Returns:
 #   None
 #######################################
 license() {
     echo "-----> Copying and renaming the license file."
-    cp "${FOLDER}/templates/_licenses/${LICENSE}" "$(pwd)"/LICENSE
-    echo "Copied the ${LICENSE} license to $(pwd)/LICENSE" | indent
-    # echo "-----> Which license should we use for your project?"
-    # echo "Example: 'mit.txt' for MIT license / 'apache-2.0.txt' for Apache." | indent
-    # echo "For a list of available files visit: https://git.io/JJm4H" | indent
-    # read -r -p "-----> Enter filename: "
 
-    # if [[ -z ${REPLY} ]]; then
-    #     echo "You did not enter a license. Please try again." | indent
-    #     read -r -p "-----> Enter filename: "
-    # fi
+    if cp "${FOLDER}/templates/_licenses/${LICENSE}" "$(pwd)"/LICENSE; then
+        echo "Copied the ${LICENSE} license to $(pwd)/LICENSE" | indent
+    else
+        echo "You entered the incorrect license file." | indent
+        echo "For a list of available files visit: https://git.io/JJm4H" | indent
+        # Run the cleanup method to clear temp files.
+        cleanup-error
+        # Notify user to try again.
+        echo "-----> Please run the command again with a valid license filename. Example:"
+        echo "curl -fsSL https://github.com/justinhartman/.github/raw/develop/install | bash -s mit.txt" | indent
 
-    # if cp "${FOLDER}"/templates/_licenses/"${REPLY}" "$(pwd)"/LICENSE; then
-    #     echo "Copied the ${REPLY} license to $(pwd)/LICENSE" | indent
-    # else
-    #     echo "You entered the incorrect license file." | indent
-    #     echo "For a list of available files visit: https://git.io/JJm4H" | indent
-    #     read -r -p "-----> Please re-enter the filename: "
-    #     cp "${FOLDER}"/templates/_licenses/"${REPLY}" "$(pwd)"/LICENSE
-    #     echo "Copied the ${REPLY} license to $(pwd)/LICENSE" | indent
-    # fi
+        # Exit with an error.
+        exit 1
+    fi
 }
 
 #######################################
@@ -157,13 +151,28 @@ license() {
 cleanup() {
     echo "-----> Cleaning up temporary files."
     rm -rf "${FOLDER}"
-    echo "Removed the temporary files and folders." | indent
+    echo "Removed all temporary files and folders." | indent
 }
 
-OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
-case "$OS" in
-    mingw* | msys*) OS=windows ;;
-esac
+#######################################
+# Remove and cleanup all files from the
+# the current working directory. This
+# removes all core files as well as
+# temp files as this is only called on
+# an error happening with the install.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
+cleanup-error() {
+    echo "-----> ERROR: Cleaning up all installed files and folders."
+    # Remove the extracted folder as well all the core files already copied.
+    rm -rf "${FOLDER}" .github .gitignore ./*.md
+    echo "Removed all install and temporary files and folders." | indent
+}
 
 #######################################
 # Run the main application methods.
@@ -188,13 +197,22 @@ main() {
     cleanup
 }
 
+# Get the Operating System name.
+OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
+case "$OS" in
+    mingw* | msys*) OS=windows ;;
+esac
+
+# Check the license file argument is not blank.
 LICENSE="${1#v}"
 if [ -z "$LICENSE" ]; then
-    echo "-----> You need to select a license file for your project."
+    echo "-----> Error: You must select a license file to use with your project."
     echo "Example: 'mit.txt' for MIT license, 'apache-2.0.txt' for Apache, etc." | indent
-    echo "For a full list of available files you can use visit: https://git.io/JJm4H" | indent
-    echo "-----> Done, with errors."
+    echo "For a full list of available files you can use, go to https://git.io/JJm4H" | indent
+    echo "-----> Please run the command again. Example:"
+    echo "curl -fsSL https://github.com/justinhartman/.github/raw/develop/install | bash -s mit.txt" | indent
 
+    # Exit with an error.
     exit 1
 else
     # Run the method.
@@ -202,6 +220,7 @@ else
     # Confirm the end of the build.
     echo "-----> The .github templates have been installed at: $(pwd)"
     echo "-----> Done."
+
     # Exit gracefully.
     exit 0
 fi
